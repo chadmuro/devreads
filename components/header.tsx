@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/7sv6eip55Aa
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,20 +16,20 @@ export default function Header() {
         <span className="sr-only">Acme Inc</span>
       </Link>
       <nav className="hidden md:flex space-x-4">
-        <Link className="font-medium" href="#">
+        <Link className="font-medium" href="/">
           Home
         </Link>
-        <Link className="font-medium" href="#">
+        {/* <Link className="font-medium" href="#">
           Features
         </Link>
         <Link className="font-medium" href="#">
           Pricing
+        </Link> */}
+        <Link className="font-medium" href="/signup">
+          Sign up
         </Link>
-        <Link className="font-medium" href="#">
-          Team
-        </Link>
-        <Link className="font-medium" href="#">
-          Contact
+        <Link className="font-medium" href="/login">
+          Log in
         </Link>
       </nav>
       <DropdownMenu>
@@ -44,30 +39,24 @@ export default function Header() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem>
-            <Link className="block py-2 font-medium" href="#">
-              Home
-            </Link>
+          <DropdownMenuItem asChild>
+            <Link href="/">Home</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link className="block py-2 font-medium" href="#">
+          {/* <DropdownMenuItem asChild>
+            <Link href="#">
               Features
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link className="block py-2 font-medium" href="#">
+          <DropdownMenuItem asChild>
+            <Link href="#">
               Pricing
             </Link>
+          </DropdownMenuItem> */}
+          <DropdownMenuItem asChild>
+            <Link href="/signup">Sign up</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link className="block py-2 font-medium" href="#">
-              Team
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link className="block py-2 font-medium" href="#">
-              Contact
-            </Link>
+          <DropdownMenuItem asChild>
+            <Link href="/login">Log in</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
