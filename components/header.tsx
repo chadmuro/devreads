@@ -11,9 +11,9 @@ import { ModeToggle } from "./mode-toggle";
 export default function Header() {
   return (
     <header className="flex items-center h-16 px-4 border-b w-full">
-      <Link className="mr-auto" href="#">
+      <Link className="mr-auto" href="/">
         <FlagIcon className="h-6 w-6" />
-        <span className="sr-only">Acme Inc</span>
+        <span className="sr-only">Dev Reads</span>
       </Link>
       <nav className="hidden md:flex space-x-4">
         <Link className="font-medium" href="/">
@@ -25,10 +25,10 @@ export default function Header() {
         <Link className="font-medium" href="#">
           Pricing
         </Link> */}
-        <Link className="font-medium" href="/signup">
+        <Link className="font-medium" href="/auth/signup">
           Sign up
         </Link>
-        <Link className="font-medium" href="/login">
+        <Link className="font-medium" href="/auth/login">
           Log in
         </Link>
       </nav>
@@ -53,10 +53,10 @@ export default function Header() {
             </Link>
           </DropdownMenuItem> */}
           <DropdownMenuItem asChild>
-            <Link href="/signup">Sign up</Link>
+            <Link href="/auth/signup">Sign up</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/login">Log in</Link>
+            <Link href="/auth/login">Log in</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
