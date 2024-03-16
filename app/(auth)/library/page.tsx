@@ -1,11 +1,11 @@
 import React from "react";
 
-function Top() {
+function Library() {
   return (
     <main className="flex flex-1 flex-col items-center justify-between">
-      Top
+      Library
     </main>
   );
 }
 
-export default Top;
+export default Library;

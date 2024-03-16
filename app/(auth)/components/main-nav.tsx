@@ -1,21 +1,19 @@
-"use client";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenuTrigger,
   DropdownMenuItem,
   DropdownMenuContent,
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
-import { ModeToggle } from "@/components/mode-toggle";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export default function Header() {
+export function MainNav({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLElement>) {
   return (
-    <header className="flex items-center h-16 px-4 border-b w-full">
-      <Link className="mr-auto" href="/">
-        <FlagIcon className="h-6 w-6" />
-        <span className="sr-only">Dev Reads</span>
-      </Link>
+    <>
       <nav className="hidden md:flex space-x-4">
         <Link
           className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
@@ -25,15 +23,15 @@ export default function Header() {
         </Link>
         <Link
           className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          href="/sign-up"
+          href="/library"
         >
-          Sign up
+          Library
         </Link>
         <Link
           className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          href="/sign-in"
+          href="/settings"
         >
-          Sign in
+          Settings
         </Link>
       </nav>
       <DropdownMenu>
@@ -47,37 +45,14 @@ export default function Header() {
             <Link href="/">Home</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/sign-up">Sign up</Link>
+            <Link href="/library">Library</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/sign-in">Sign in</Link>
+            <Link href="/settings">Settings</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className="ml-4">
-        <ModeToggle />
-      </div>
-    </header>
-  );
-}
-
-function FlagIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-      <line x1="4" x2="4" y1="22" y2="15" />
-    </svg>
+    </>
   );
 }
 
