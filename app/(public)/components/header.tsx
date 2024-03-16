@@ -7,7 +7,7 @@ import {
   DropdownMenuContent,
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
-import { ModeToggle } from "./mode-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Header() {
   return (
@@ -20,10 +20,10 @@ export default function Header() {
         <Link className="font-medium" href="/">
           Home
         </Link>
-        <Link className="font-medium" href="/auth/sign-up">
+        <Link className="font-medium" href="/sign-up">
           Sign up
         </Link>
-        <Link className="font-medium" href="/auth/sign-in">
+        <Link className="font-medium" href="/sign-in">
           Sign in
         </Link>
       </nav>
@@ -38,10 +38,10 @@ export default function Header() {
             <Link href="/">Home</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/auth/sign-up">Sign up</Link>
+            <Link href="/sign-up">Sign up</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/auth/sign-in">Sign in</Link>
+            <Link href="/sign-in">Sign in</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
