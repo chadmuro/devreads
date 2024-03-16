@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,17 +20,11 @@ export default function Header() {
         <Link className="font-medium" href="/">
           Home
         </Link>
-        {/* <Link className="font-medium" href="#">
-          Features
-        </Link>
-        <Link className="font-medium" href="#">
-          Pricing
-        </Link> */}
-        <Link className="font-medium" href="/auth/signup">
+        <Link className="font-medium" href="/auth/sign-up">
           Sign up
         </Link>
-        <Link className="font-medium" href="/auth/login">
-          Log in
+        <Link className="font-medium" href="/auth/sign-in">
+          Sign in
         </Link>
       </nav>
       <DropdownMenu>
@@ -42,21 +37,11 @@ export default function Header() {
           <DropdownMenuItem asChild>
             <Link href="/">Home</Link>
           </DropdownMenuItem>
-          {/* <DropdownMenuItem asChild>
-            <Link href="#">
-              Features
-            </Link>
+          <DropdownMenuItem asChild>
+            <Link href="/auth/sign-up">Sign up</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="#">
-              Pricing
-            </Link>
-          </DropdownMenuItem> */}
-          <DropdownMenuItem asChild>
-            <Link href="/auth/signup">Sign up</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/auth/login">Log in</Link>
+            <Link href="/auth/sign-in">Sign in</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
