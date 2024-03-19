@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
+import ConvexClientProvider from "./ConvexClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,25 +18,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          suppressHydrationWarning={true}
-          className={
-            inter.className +
-            " flex flex-col items-center justify-center min-h-screen"
-          }
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning={true}
+        className={
+          inter.className +
+          " flex flex-col items-center justify-center min-h-screen"
+        }
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+          <ClerkProvider>
+            <ConvexClientProvider>{children}</ConvexClientProvider>
+          </ClerkProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
