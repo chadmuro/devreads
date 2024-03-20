@@ -12,11 +12,6 @@ export default authMiddleware({
     if (!auth.userId && !auth.isPublicRoute) {
       return redirectToSignIn({ returnBackUrl: req.url });
     }
-    // Redirect signed in users to organization selection page if they are not active in an organization
-    if (auth.userId && auth.isPublicRoute) {
-      const dashboardUrl = new URL("/dashboard", req.url);
-      return NextResponse.redirect(dashboardUrl);
-    }
     // Allow users visiting public routes to access them
     return NextResponse.next();
   },

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Component() {
@@ -16,15 +17,22 @@ export default function Component() {
                 the power of books.
               </p>
             </div>
-            <Link href="/sign-up" passHref>
-              <Button className="w-full max-w-sm">Get started</Button>
-            </Link>
-            <p className="text-xs text-zinc-800 dark:text-zinc-100">
-              Get ready to redefine your reading experience.
-              <Link className="underline underline-offset-2" href="/">
-                Terms & Conditions
+            <SignedOut>
+              <Link href="/sign-up" passHref>
+                <Button className="w-full max-w-sm">Get started</Button>
               </Link>
-            </p>
+              <p className="text-xs text-zinc-800 dark:text-zinc-100">
+                Get ready to redefine your reading experience.
+                <Link className="underline underline-offset-2" href="/">
+                  Terms & Conditions
+                </Link>
+              </p>
+            </SignedOut>
+            <SignedIn>
+              <Link href="/dashboard" passHref>
+                <Button className="w-full max-w-sm">Get started</Button>
+              </Link>
+            </SignedIn>
           </div>
         </div>
       </div>

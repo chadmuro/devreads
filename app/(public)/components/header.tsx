@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Icons } from "@/components/icons";
+import { SignedIn, SignedOut, SignOutButton } from "@clerk/nextjs";
 
 export default function Header() {
   return (
@@ -24,18 +25,33 @@ export default function Header() {
         >
           Home
         </Link>
-        <Link
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          href="/sign-up"
-        >
-          Sign up
-        </Link>
-        <Link
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          href="/sign-in"
-        >
-          Sign in
-        </Link>
+        <SignedOut>
+          <Link
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            href="/sign-up"
+          >
+            Sign up
+          </Link>
+          <Link
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            href="/sign-in"
+          >
+            Sign in
+          </Link>
+        </SignedOut>
+        <SignedIn>
+          <Link
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            href="/dashboard"
+          >
+            Dashboard
+          </Link>
+          <SignOutButton>
+            <button className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Sign out
+            </button>
+          </SignOutButton>
+        </SignedIn>
       </nav>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -47,12 +63,22 @@ export default function Header() {
           <DropdownMenuItem asChild>
             <Link href="/">Home</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/sign-up">Sign up</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/sign-in">Sign in</Link>
-          </DropdownMenuItem>
+          <SignedOut>
+            <DropdownMenuItem asChild>
+              <Link href="/sign-up">Sign up</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/sign-in">Sign in</Link>
+            </DropdownMenuItem>
+          </SignedOut>
+          <SignedIn>
+            <DropdownMenuItem asChild>
+              <Link href="/dashboard">Dashboard</Link>
+            </DropdownMenuItem>
+            <SignOutButton>
+              <DropdownMenuItem>Sign out</DropdownMenuItem>
+            </SignOutButton>
+          </SignedIn>
         </DropdownMenuContent>
       </DropdownMenu>
       <div className="ml-4">
