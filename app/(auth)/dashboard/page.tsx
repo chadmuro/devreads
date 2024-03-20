@@ -24,7 +24,6 @@ async function Dashboard({
           </div>
         }
       >
-        {/* @ts-expect-error Server Component */}
         <SearchResults query={query} />
       </Suspense>
     </main>
