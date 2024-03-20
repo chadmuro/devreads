@@ -14,11 +14,7 @@ function Header() {
 
   return (
     <header className="flex items-center h-16 px-4 border-b w-full">
-      <Link className="mr-auto" href="/dashboard">
-        <Icons.logo className="h-6 w-6" />
-        <span className="sr-only">Dev Reads</span>
-      </Link>
-      <div className="flex items-center mr-4">
+      <div className="flex items-center mr-auto">
         <UserButton
           appearance={{
             baseTheme: resolvedTheme === "dark" ? dark : undefined,
