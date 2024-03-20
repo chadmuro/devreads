@@ -4,7 +4,6 @@ import React from "react";
 import { dark } from "@clerk/themes";
 import { MainNav } from "./main-nav";
 import { UserButton } from "@clerk/nextjs";
-import { Search } from "./search";
 import { useTheme } from "next-themes";
 
 function Header() {

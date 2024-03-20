@@ -15,7 +15,7 @@ async function getData({ query }: { query: string }) {
 
 async function SearchResults({ query }: { query: string }) {
   if (!query) {
-    return <p>Empty results</p>;
+    return null;
   }
   const data = await getData({ query });
 
