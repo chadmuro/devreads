@@ -24,7 +24,7 @@ export function Search() {
     <Input
       type="search"
       placeholder="Search..."
-      className="w-full"
+      className="w-full text-base"
       onChange={(e) => handleSearch(e.target.value)}
       defaultValue={searchParams.get("query")?.toString()}
     />

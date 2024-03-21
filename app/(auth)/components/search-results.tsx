@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 async function getData({ query }: { query: string }) {
@@ -20,12 +21,22 @@ async function SearchResults({ query }: { query: string }) {
   const data = await getData({ query });
 
   return (
-    <ul className="w-full">
+    <ul className="w-full max-h-[500px] overflow-scroll mt-2 rounded-md">
       {data.items?.map((book: any) => {
         return (
           <li key={book.id} className="w-full border p-2">
             <Link href={`/book/${book.id}`}>
-              <p>{book.volumeInfo.title}</p>
+              <div className="flex gap-2">
+                <div className="w-[50px] h-[50px] relative">
+                  <Image
+                    src={book.volumeInfo.imageLinks?.smallThumbnail}
+                    alt={book.volumeInfo.title}
+                    fill
+                    objectFit="contain"
+                  />
+                </div>
+                <p>{book.volumeInfo.title}</p>
+              </div>
             </Link>
           </li>
         );
