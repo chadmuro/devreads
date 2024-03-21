@@ -6,8 +6,6 @@ import { MainNav } from "./main-nav";
 import { UserButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import { ModeToggle } from "@/components/mode-toggle";
-import Link from "next/link";
-import { Icons } from "@/components/icons";
 
 function Header() {
   const { resolvedTheme } = useTheme();
